@@ -13,3 +13,7 @@
 /wrapper/Mathcad/if97_validation.xmcd
 /wrapper/Mathcad/Prime
 
+/wrapper/Python/__pycache__/
+/wrapper/Python/build/
+/wrapper/Python/*.pyd
+/wrapper/Python/_if97.cpp
