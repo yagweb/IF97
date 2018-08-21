@@ -312,4 +312,27 @@ def Q_prhomass(p, rho):
 def Q_pv(p, v):
     return if97.Q_pv(p, v)
 
- 
+class IF97parameters:
+    IF97_DMASS = 0
+    IF97_HMASS = 1
+    IF97_T = 2
+    IF97_P = 3
+    IF97_SMASS = 4
+    IF97_UMASS = 5
+    IF97_CPMASS = 6
+    IF97_CVMASS = 7
+    IF97_W = 8
+    IF97_DRHODP = 9
+    IF97_MU = 10
+    IF97_K = 11
+
+class IF97SatState:
+    NONE = 0
+    LIQUID = 1
+    VAPOR = 2
+        
+def RegionOutput(int outkey, double T, double p, int state):
+    cdef :
+        if97.IF97parameters _outkey = <if97.IF97parameters>outkey
+        if97.IF97SatState _State = <if97.IF97SatState>state
+    return if97.RegionOutput(_outkey, T, p, _State)

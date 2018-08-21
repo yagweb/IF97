@@ -160,6 +160,12 @@ def test_reverse2():
         print("T = %11.9e" % (state1.T))
     print("_______________________________________________\n")
     
+def test_RegionOutput():
+    T = 500
+    p = 100
+    value = if97.RegionOutput(if97.IF97parameters.IF97_UMASS, T, p, if97.IF97SatState.VAPOR)
+    print(value)
+    
 if __name__ == "__main__":
     print(if97.version)
     test_Region1()
@@ -168,3 +174,4 @@ if __name__ == "__main__":
     test_Region5()
     test_reverse()
     test_reverse2()
+    test_RegionOutput()

@@ -1,5 +1,25 @@
 from libcpp.string cimport string
 
+cdef extern from "IF97.h" nogil:
+    enum IF97parameters:
+        IF97_DMASS
+        IF97_HMASS
+        IF97_T
+        IF97_P
+        IF97_SMASS
+        IF97_UMASS
+        IF97_CPMASS
+        IF97_CVMASS
+        IF97_W
+        IF97_DRHODP
+        IF97_MU
+        IF97_K
+
+    enum IF97SatState:
+        NONE
+        LIQUID
+        VAPOR
+
 cdef extern from "IF97.h" namespace "IF97" nogil:
     ###########################
     ## API
@@ -139,4 +159,6 @@ cdef extern from "IF97.h" namespace "IF97" nogil:
     double Q_psmass(double p, double s) except +
     double Q_prhomass(double p, double rho) except +
     double Q_pv(double p, double v) except +
+    
+    double RegionOutput(IF97parameters outkey, double T, double p, IF97SatState State) except +
     
